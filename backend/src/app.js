@@ -1,0 +1,23 @@
+const studentRoutes = require("./routes/studentRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const userRoutes = require("./routes/userRoutes");
+const express = require("express");
+const cors = require("cors");
+const authRoutes = require("./routes/authRoutes");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/student", studentRoutes);
+app.get("/api/test", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "EduSphere AI Backend Running Successfully"
+  });
+});
+
+module.exports = app;
