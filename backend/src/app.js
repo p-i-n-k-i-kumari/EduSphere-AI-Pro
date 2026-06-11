@@ -1,3 +1,5 @@
+const assignmentRoutes = require("./routes/assignmentRoutes");
+const attendanceRoutes = require("./routes/attendanceRoutes");
 const facultyRoutes = require("./routes/facultyRoutes");
 const studentRoutes = require("./routes/studentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
@@ -15,6 +17,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/faculty", facultyRoutes);
+app.use("/api/attendance", attendanceRoutes);
+app.use("/api/assignment", assignmentRoutes);
 app.get("/api/test", (req, res) => {
   res.status(200).json({
     success: true,
