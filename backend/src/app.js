@@ -1,3 +1,4 @@
+const courseRoutes = require("./routes/courseRoutes");
 const assignmentRoutes = require("./routes/assignmentRoutes");
 const attendanceRoutes = require("./routes/attendanceRoutes");
 const facultyRoutes = require("./routes/facultyRoutes");
@@ -19,6 +20,7 @@ app.use("/api/student", studentRoutes);
 app.use("/api/faculty", facultyRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/assignment", assignmentRoutes);
+app.use("/api/course", courseRoutes);
 app.get("/api/test", (req, res) => {
   res.status(200).json({
     success: true,
