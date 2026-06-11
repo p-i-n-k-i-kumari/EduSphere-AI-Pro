@@ -7,6 +7,9 @@ const authorizeRoles = require("../middleware/roleMiddleware");
 const {
   createStudent,
   getAllStudents,
+  getStudentById,
+  updateStudent,
+  deleteStudent,
 } = require("../controllers/studentController");
 
 router.post(
@@ -21,5 +24,24 @@ router.get(
   authorizeRoles("admin"),
   getAllStudents
 );
+router.get(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  getStudentById
+);
 
+router.put(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  updateStudent
+);
+
+router.delete(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  deleteStudent
+);
 module.exports = router;
