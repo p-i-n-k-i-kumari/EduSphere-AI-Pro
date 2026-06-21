@@ -7,6 +7,9 @@ const authorizeRoles = require("../middleware/roleMiddleware");
 const {
   createAssignment,
   getAllAssignments,
+  getAssignmentById,
+  updateAssignment,
+  deleteAssignment,
 } = require("../controllers/assignmentController");
 
 router.post(
@@ -21,6 +24,26 @@ router.get(
   authMiddleware,
   authorizeRoles("admin"),
   getAllAssignments
+);
+router.get(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  getAssignmentById
+);
+
+router.put(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  updateAssignment
+);
+
+router.delete(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  deleteAssignment
 );
 
 module.exports = router;

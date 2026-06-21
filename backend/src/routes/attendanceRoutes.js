@@ -5,8 +5,11 @@ const authMiddleware = require("../middleware/authMiddleware");
 const authorizeRoles = require("../middleware/roleMiddleware");
 
 const {
-  markAttendance,
+    markAttendance,
   getAllAttendance,
+  getAttendanceById,
+  updateAttendance,
+  deleteAttendance,
 } = require("../controllers/attendanceController");
 
 router.post(
@@ -21,6 +24,26 @@ router.get(
   authMiddleware,
   authorizeRoles("admin"),
   getAllAttendance
+);
+router.get(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  getAttendanceById
+);
+
+router.put(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  updateAttendance
+);
+
+router.delete(
+  "/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  deleteAttendance
 );
 
 module.exports = router;

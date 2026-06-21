@@ -1,3 +1,5 @@
+const dashboardRoutes = require("./routes/dashboardRoutes");
+const feeRoutes = require("./routes/feeRoutes");
 const resultRoutes = require("./routes/resultRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const assignmentRoutes = require("./routes/assignmentRoutes");
@@ -23,6 +25,8 @@ app.use("/api/attendance", attendanceRoutes);
 app.use("/api/assignment", assignmentRoutes);
 app.use("/api/course", courseRoutes);
 app.use("/api/result", resultRoutes);
+app.use("/api/fee", feeRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 app.get("/api/test", (req, res) => {
   res.status(200).json({
     success: true,
